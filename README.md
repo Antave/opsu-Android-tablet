@@ -7,6 +7,10 @@ https://play.google.com/store/apps/details?id=fluddokt.opsu.android&hl=en
 
 Most up to date code on this branch: https://github.com/AnirudhRahul/opsu-Android
 
+## Purpose
+
+The purpose of this project is to allow tablet style input on android devices. Using the bottom corner as a miniature playspace and input to the main window.
+
 ## Building
 
 This project is Android Studio ready, just put the files in here in a folder and start it up as an android project. Debugging may not work but you can still generate a signed APK
