@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.regions.Regions;
+import com.antave.opsu.R;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.files.FileHandle;
@@ -64,7 +65,7 @@ public class AndroidLauncher extends AndroidApplication implements SurfaceHolder
 
 //		Log.e("BruhBruh",""+Fabric.isInitialized());
 //		Fabric.with(this, new Crashlytics());
-		identityPool=getString(R.string.aws_identity);
+		//identityPool=getString(R.string.aws_identity);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 

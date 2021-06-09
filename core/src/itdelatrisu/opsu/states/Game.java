@@ -455,7 +455,7 @@ public class Game extends BasicGameState {
 
 		// "auto" and "autopilot" mods: move cursor automatically
 		// TODO: this should really be in update(), not render()
-		autoMousePosition.set(width / 2, height / 2);
+		autoMousePosition.set(width / 3, height / 3);
 		autoMousePressed = false;
 		if (GameMod.AUTO.isActive() || GameMod.AUTOPILOT.isActive()) {
 			Vec2f autoPoint = null;

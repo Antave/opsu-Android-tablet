@@ -2,5 +2,10 @@
 <resources>
 
     <string name="app_name">opsu!</string>
+    <string name="admob_id">ca-app-pub-9020172408337903~9796429275</string>
+    <string name="aws_identity">null</string>
+    <string name="ad1_id">ca-app-pub-9020172408337903/8228196732</string>
+    <integer name="tab_width">100</integer>
+    <integer name="tab_height">100</integer>
 
 </resources>

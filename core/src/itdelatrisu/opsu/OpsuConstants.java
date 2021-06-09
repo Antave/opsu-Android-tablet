@@ -31,13 +31,13 @@ public class OpsuConstants {
 	public static final String VERSION = "v1.15";
 
 	/** Project author. */
-	public static final String PROJECT_AUTHOR = "@itdelatrisu + @fluddokt + @anirudhrahul";
+	public static final String PROJECT_AUTHOR = "@itdelatrisu + @fluddokt + @anirudhrahul + @antave";
 
 	/** Website address. */
 	public static final URI WEBSITE_URI = URI.create("https://play.google.com/store/apps/details?id=fluddokt.opsu.android");
 
 	/** Repository address. */
-	public static final URI REPOSITORY_URI = URI.create("https://github.com/AnirudhRahul/opsu");
+	public static final URI REPOSITORY_URI = URI.create("https://github.com/Antave/opsu-Android-tablet");
 
 	/** Credits address. */
 	public static final URI CREDITS_URI = URI.create("https://github.com/AnirudhRahul/opsu/blob/master/CREDITS.md");

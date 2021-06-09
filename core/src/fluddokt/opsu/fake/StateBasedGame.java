@@ -187,7 +187,13 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 	}
 
 	@Override
-	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+	public boolean touchDown(int scnX, int scnY, int pointer, int button) {
+		int xMult = 2800 / 500;
+		int yMult = 1752 / 281;
+
+		int screenX = (500 - (2800 - scnX)) * xMult;
+		int screenY = (281 - (1752 - scnY)) * yMult;
+
 		try {
 			if (pointer > 0) {
 				if(rightIsPressed){
@@ -255,7 +261,13 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 	}
 
 	@Override
-	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+	public boolean touchUp(int scnX, int scnY, int pointer, int button) {
+		int xMult = 2800 / 500;
+		int yMult = 1752 / 281;
+
+		int screenX = (500 - (2800 - scnX)) * xMult;
+		int screenY = (281 - (1752 - scnY)) * yMult;
+
 		if (pointer > 0){
 			int dx = oldx - touchX;
 			int dy = oldy - touchY;
@@ -283,7 +295,13 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 	}
 
 	@Override
-	public boolean touchDragged(int screenX, int screenY, int pointer) {
+	public boolean touchDragged(int scnX, int scnY, int pointer) {
+		int xMult = 2800 / 500;
+		int yMult = 1752 / 281;
+
+		int screenX = (500 - (2800 - scnX)) * xMult;
+		int screenY = (281 - (1752 - scnY)) * yMult;
+
 		if (pointer == 0) {
 			Input.x = screenX;
 			Input.y = screenY;
@@ -297,7 +315,13 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 	int oldx, oldy;
 
 	@Override
-	public boolean mouseMoved(int screenX, int screenY) {
+	public boolean mouseMoved(int scnX, int scnY) {
+		int xMult = 2800 / 500;
+		int yMult = 1752 / 281;
+
+		int screenX = (500 - (2800 - scnX)) * xMult;
+		int screenY = (281 - (1752 - scnY)) * yMult;
+
 		Input.x = screenX;
 		Input.y = screenY;
 		currentState.mouseMoved(oldx, oldy, screenX, screenX);

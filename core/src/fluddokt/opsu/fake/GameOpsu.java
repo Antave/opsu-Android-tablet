@@ -32,6 +32,9 @@ public class GameOpsu extends com.badlogic.gdx.Game {
 	Table table;
 	Skin skin;
 	static GameOpsu gameOpsu;
+
+	int tab_width = 500;
+	int tab_height = 281;
 	
 	boolean inited = false;
 
@@ -95,8 +98,8 @@ public class GameOpsu extends com.badlogic.gdx.Game {
 			if (sbg == null){
 				if (Gdx.graphics.getWidth() > Gdx.graphics.getHeight()){
 					sbg = Opsu.start();
-					sbg.gc.width = Gdx.graphics.getWidth();
-					sbg.gc.height = Gdx.graphics.getHeight();
+					sbg.gc.width = Gdx.graphics.getWidth() - tab_width;
+					sbg.gc.height = Gdx.graphics.getHeight() - tab_height;
 					
 					try {
 						sbg.init();
