@@ -607,6 +607,35 @@ public class Options {
 		ALWAYS_SHOW_KEY_OVERLAY ("Always show key overlay", "KeyOverlay", "Show the key overlay when playing instead of only on replays.", false),
 		SYNC_USER_INFO("Sync user information across devices","Sync Info","Sync all user statistics across devices including score and accuracy", true),
 		LOAD_HD_IMAGES ("Load HD images", "LoadHDImages", String.format("Loads HD (%s) images when available.\nIncreases memory usage and loading times.", GameImage.HD_SUFFIX), true),
+		SCREEN_SIZE ("Screen size", "ScreenSize", "Determines the size of the playspace.", 100, 30, 100) {
+			@Override
+			public String getValueString() { return String.format(Locale.US,"%.1f", val / 10f); }
+
+			@Override
+			public String write() { return String.format(Locale.US, "%.1f", val / 10f); }
+
+			@Override
+			public void read(String s) {
+				int i = (int) (Float.parseFloat(s) * 10f);
+				if (i >= getMinValue() && i <= getMaxValue())
+					val = i;
+			}
+		},
+		SCREEN_APPLY ("Apply settings", "ApplyScreen", "Apply changes to screen size adjustment and sensitivity.", false),
+		TAB_SENSITIVITY ("On-screen tablet sensitivity", "TabletSensitivity", "Determines the sensitivity of the on-screen tablet.", 10, 10, 90) {
+			@Override
+			public String getValueString() { return String.format(Locale.US,"%.1f", val / 10f); }
+
+			@Override
+			public String write() { return String.format(Locale.US, "%.1f", val / 10f); }
+
+			@Override
+			public void read(String s) {
+				int i = (int) (Float.parseFloat(s) * 10f);
+				if (i >= getMinValue() && i <= getMaxValue())
+					val = i;
+			}
+		},
 		FIXED_CS ("Fixed CS", "FixedCS", "Determines the size of circles and sliders.", 0, 0, 100) {
 			@Override
 			public String getValueString() { return (val == 0) ? "Disabled" : String.format(Locale.US,"%.1f", val / 10f); }

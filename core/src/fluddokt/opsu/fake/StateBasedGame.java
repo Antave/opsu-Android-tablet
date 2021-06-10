@@ -9,6 +9,10 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 import fluddokt.newdawn.slick.state.transition.Transition;
 import fluddokt.opsu.fake.gui.GInputListener;
+import itdelatrisu.opsu.options.Options;
+
+import static itdelatrisu.opsu.options.Options.GameOption.SCREEN_SIZE;
+import static itdelatrisu.opsu.options.Options.GameOption.TAB_SENSITIVITY;
 
 public abstract class StateBasedGame extends Game2 implements InputProcessor {
 
@@ -25,6 +29,16 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 	int touchX = 0;
 	int touchY = 0;
 	long touchTime;
+
+	int screen_width = Gdx.graphics.getWidth();
+	int screen_height = Gdx.graphics.getHeight();
+
+	double aspect_ratio = screen_width / (double)screen_height;
+
+	double sensitivity = (Double.parseDouble(TAB_SENSITIVITY.getValueString()));
+
+	int tab_width = (int)(Gdx.graphics.getWidth() / sensitivity);
+	int tab_height = (int)(tab_width / aspect_ratio);
 	
 	Transition enterT, leaveT;
 	
@@ -188,11 +202,12 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int scnX, int scnY, int pointer, int button) {
-		int xMult = 2800 / 500;
-		int yMult = 1752 / 281;
 
-		int screenX = (500 - (2800 - scnX)) * xMult;
-		int screenY = (281 - (1752 - scnY)) * yMult;
+		int xMult = screen_width / tab_width;
+		int yMult = screen_height / tab_height;
+
+		int screenX = (tab_width - (Gdx.graphics.getWidth() - scnX)) * xMult;
+		int screenY = (tab_height - (Gdx.graphics.getHeight() - scnY)) * yMult;
 
 		try {
 			if (pointer > 0) {
@@ -262,11 +277,11 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int scnX, int scnY, int pointer, int button) {
-		int xMult = 2800 / 500;
-		int yMult = 1752 / 281;
+		int xMult = screen_width / tab_width;
+		int yMult = screen_height / tab_height;
 
-		int screenX = (500 - (2800 - scnX)) * xMult;
-		int screenY = (281 - (1752 - scnY)) * yMult;
+		int screenX = (tab_width - (Gdx.graphics.getWidth() - scnX)) * xMult;
+		int screenY = (tab_height - (Gdx.graphics.getHeight() - scnY)) * yMult;
 
 		if (pointer > 0){
 			int dx = oldx - touchX;
@@ -296,11 +311,11 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 
 	@Override
 	public boolean touchDragged(int scnX, int scnY, int pointer) {
-		int xMult = 2800 / 500;
-		int yMult = 1752 / 281;
+		int xMult = screen_width / tab_width;
+		int yMult = screen_height / tab_height;
 
-		int screenX = (500 - (2800 - scnX)) * xMult;
-		int screenY = (281 - (1752 - scnY)) * yMult;
+		int screenX = (tab_width - (Gdx.graphics.getWidth() - scnX)) * xMult;
+		int screenY = (tab_height - (Gdx.graphics.getHeight() - scnY)) * yMult;
 
 		if (pointer == 0) {
 			Input.x = screenX;
@@ -316,11 +331,11 @@ public abstract class StateBasedGame extends Game2 implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int scnX, int scnY) {
-		int xMult = 2800 / 500;
-		int yMult = 1752 / 281;
+		int xMult = screen_width / tab_width;
+		int yMult = screen_height / tab_height;
 
-		int screenX = (500 - (2800 - scnX)) * xMult;
-		int screenY = (281 - (1752 - scnY)) * yMult;
+		int screenX = (tab_width - (Gdx.graphics.getWidth() - scnX)) * xMult;
+		int screenY = (tab_height - (Gdx.graphics.getHeight() - scnY)) * yMult;
 
 		Input.x = screenX;
 		Input.y = screenY;

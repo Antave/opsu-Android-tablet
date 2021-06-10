@@ -23,6 +23,9 @@ import itdelatrisu.opsu.GameImage;
 import itdelatrisu.opsu.Opsu;
 import itdelatrisu.opsu.options.Options;
 
+import static itdelatrisu.opsu.options.Options.GameOption.SCREEN_APPLY;
+import static itdelatrisu.opsu.options.Options.GameOption.SCREEN_SIZE;
+
 public class GameOpsu extends com.badlogic.gdx.Game {
 
 	public final static String VERSION = "0.16.0b";
@@ -32,9 +35,6 @@ public class GameOpsu extends com.badlogic.gdx.Game {
 	Table table;
 	Skin skin;
 	static GameOpsu gameOpsu;
-
-	int tab_width = 500;
-	int tab_height = 281;
 	
 	boolean inited = false;
 
@@ -95,8 +95,20 @@ public class GameOpsu extends com.badlogic.gdx.Game {
 		
 		if (delayLoad>2 && dialogCnt == 0){
 		try{
-			if (sbg == null){
+			if (sbg == null || SCREEN_APPLY.getBooleanValue()){
 				if (Gdx.graphics.getWidth() > Gdx.graphics.getHeight()){
+					SCREEN_APPLY.setValue(false);
+
+					int screen_width = Gdx.graphics.getWidth();
+					int screen_height = Gdx.graphics.getHeight();
+
+					double aspect_ratio = screen_width / (double)screen_height;
+
+					double screen_size = 1.0 - (Double.parseDouble(SCREEN_SIZE.getValueString()) / 10.0);
+
+					int tab_width = (int)(Gdx.graphics.getWidth() * screen_size);
+					int tab_height = (int)(tab_width / aspect_ratio);
+
 					sbg = Opsu.start();
 					sbg.gc.width = Gdx.graphics.getWidth() - tab_width;
 					sbg.gc.height = Gdx.graphics.getHeight() - tab_height;

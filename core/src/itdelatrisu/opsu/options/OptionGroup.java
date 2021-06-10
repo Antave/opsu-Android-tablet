@@ -112,6 +112,11 @@ public class OptionGroup {
 			GameOption.KEY_LEFT,
 			GameOption.KEY_RIGHT,
 		}),
+		new OptionGroup("ON-SCREEN TABLET", new GameOption[] {
+				GameOption.SCREEN_SIZE,
+				GameOption.TAB_SENSITIVITY,
+				GameOption.SCREEN_APPLY,
+		}),
 		new OptionGroup("Custom", GameImage.MENU_NAV_CUSTOM),
 		new OptionGroup("DIFFICULTY", new GameOption[] {
 			GameOption.FIXED_CS,
