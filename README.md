@@ -7,6 +7,8 @@ https://play.google.com/store/apps/details?id=fluddokt.opsu.android&hl=en
 
 Most up to date code on this branch: https://github.com/AnirudhRahul/opsu-Android
 
+**Settings come default with no on-screen tablet, you must enable it in the settings under the input section**
+
 ## Purpose
 
 The purpose of this project is to allow tablet style input on android devices. Using the bottom corner as a miniature playspace and input to the main window.
